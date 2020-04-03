@@ -1,6 +1,9 @@
 # phpstorm project files
 .idea
 
+# local design files
+local-dev-src
+
 # netbeans project files
 nbproject
 

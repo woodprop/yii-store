@@ -11,6 +11,10 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'layout' => 'grocery',
+    'defaultRoute' => 'home/index',
+    'language' => 'ru',
+    'name' => 'Grocery Store',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
