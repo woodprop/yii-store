@@ -27,9 +27,9 @@ AppAsset::register($this);
         <a href="products.html">Только Сегодня !</a>
     </div>
     <div class="w3l_search">
-        <form action="#" method="post">
-            <input type="text" name="Product" value="Поиск товаров..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Поиск товаров...';}" required="">
-            <input type="submit" value=" ">
+        <form action="<?= \yii\helpers\Url::to(['category/search']) ?>" method="get">
+            <input type="text" name="q" value="Поиск товаров..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Поиск товаров...';}" required="">
+            <input type="submit" value="">
         </form>
     </div>
     <div class="product_list_header">
