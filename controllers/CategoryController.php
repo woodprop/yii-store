@@ -15,7 +15,7 @@ class CategoryController extends AppController
         if (!$category) throw new NotFoundHttpException('Категория не найдена...');
 
         $products = Product::find()->where(['category_id' => $id])->all();
-
+        $this->setMeta($category->title, $category->description, $category->keywords);
         return $this->render('view', compact('category', 'products'));
     }
 }
