@@ -4,7 +4,7 @@
  */
 ?>
 <li <?php if (isset($category['children'])) echo 'class="dropdown"'; ?>>
-    <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $category['id']]) ?>>"
+    <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $category['id']]); ?>"
     <?php if (isset($category['children'])) echo 'class="dropdown-toggle" data-toggle="dropdown"'; ?>>
         <?= $category['title'] ?>
     </a>

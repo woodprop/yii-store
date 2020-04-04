@@ -24,11 +24,11 @@ AppAsset::register($this);
 <!-- header -->
 <div class="agileits_header">
     <div class="w3l_offers">
-        <a href="products.html">Today's special Offers !</a>
+        <a href="products.html">Только Сегодня !</a>
     </div>
     <div class="w3l_search">
         <form action="#" method="post">
-            <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+            <input type="text" name="Product" value="Поиск товаров..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Поиск товаров...';}" required="">
             <input type="submit" value=" ">
         </form>
     </div>
@@ -37,7 +37,7 @@ AppAsset::register($this);
             <fieldset>
                 <input type="hidden" name="cmd" value="_cart" />
                 <input type="hidden" name="display" value="1" />
-                <input type="submit" name="submit" value="View your cart" class="button" />
+                <input type="submit" name="submit" value="Корзина" class="button" />
             </fieldset>
         </form>
     </div>
@@ -48,8 +48,8 @@ AppAsset::register($this);
                 <div class="mega-dropdown-menu">
                     <div class="w3ls_vegetables">
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="login.html">Sign Up</a></li>
+                            <li><a href="login.html">Войти</a></li>
+                            <li><a href="login.html">Зарегистрироваться</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ AppAsset::register($this);
         </ul>
     </div>
     <div class="w3l_header_right1">
-        <h2><a href="mail.html">Contact Us</a></h2>
+        <h2><a href="mail.html">Связаться с нами</a></h2>
     </div>
     <div class="clearfix"> </div>
 </div>
@@ -65,19 +65,19 @@ AppAsset::register($this);
 <div class="logo_products">
     <div class="container">
         <div class="w3ls_logo_products_left">
-            <h1><a href="<?= \yii\helpers\Url::home() ?>"><span>Grocery</span> Store</a></h1>
+            <h1><a href="<?= \yii\helpers\Url::home() ?>"><span>Продуктовый</span> Ларёк</a></h1>
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="special_items">
-                <li><a href="events.html">Events</a><i>/</i></li>
-                <li><a href="about.html">About Us</a><i>/</i></li>
-                <li><a href="products.html">Best Deals</a><i>/</i></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="events.html">Акции</a><i>/</i></li>
+                <li><a href="about.html">О Нас</a><i>/</i></li>
+                <li><a href="products.html">Распродажа</a><i>/</i></li>
+                <li><a href="services.html">Услуги</a></li>
             </ul>
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="phone_email">
-                <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i>+7 (495) 234-5678</li>
                 <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
             </ul>
         </div>
@@ -92,12 +92,12 @@ AppAsset::register($this);
 <div class="newsletter">
     <div class="container">
         <div class="w3agile_newsletter_left">
-            <h3>sign up for our newsletter</h3>
+            <h3>подпишитесь на нашу рассылку</h3>
         </div>
         <div class="w3agile_newsletter_right">
             <form action="#" method="post">
                 <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                <input type="submit" value="subscribe now">
+                <input type="submit" value="Подписаться">
             </form>
         </div>
         <div class="clearfix"> </div>
@@ -110,19 +110,19 @@ AppAsset::register($this);
         <div class="col-md-3 w3_footer_grid">
             <h3>information</h3>
             <ul class="w3_footer_grid_list">
-                <li><a href="events.html">Events</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Best Deals</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="short-codes.html">Short Codes</a></li>
+                <li><a href="events.html">Акции</a></li>
+                <li><a href="about.html">О Нас</a></li>
+                <li><a href="products.html">Распродажа</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="short-codes.html">Купоны</a></li>
             </ul>
         </div>
         <div class="col-md-3 w3_footer_grid">
             <h3>policy info</h3>
             <ul class="w3_footer_grid_list">
-                <li><a href="faqs.html">FAQ</a></li>
-                <li><a href="privacy.html">privacy policy</a></li>
-                <li><a href="privacy.html">terms of use</a></li>
+                <li><a href="faqs.html">ЧаВо</a></li>
+                <li><a href="privacy.html">Конфиденциальность</a></li>
+                <li><a href="privacy.html">Условия</a></li>
             </ul>
         </div>
         <div class="col-md-3 w3_footer_grid">
@@ -150,7 +150,7 @@ AppAsset::register($this);
         <div class="agile_footer_grids">
             <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
                 <div class="w3_footer_grid_bottom">
-                    <h4>100% secure payments</h4>
+                    <h4>100% безопасная оплата</h4>
                     <img src="images/card.png" alt=" " class="img-responsive" />
                 </div>
             </div>
@@ -169,7 +169,7 @@ AppAsset::register($this);
             <div class="clearfix"> </div>
         </div>
         <div class="wthree_footer_copy">
-            <p>© 2016 Grocery Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+            <p>© 2016 Grocery Store. All rights reserved | Разработка <a href="http://kkokarev.ru/">Konstantin Kokarev</a></p>
         </div>
     </div>
 </div>
