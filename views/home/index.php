@@ -1,3 +1,5 @@
+<div class="banner">
+    <?= $this->render('//layouts/inc/sidebar') ?>
     <div class="w3l_banner_nav_right">
         <section class="slider">
             <div class="flexslider">
@@ -66,7 +68,8 @@
     <div class="clearfix"> </div>
 </div>
 <!-- top-brands -->
-<div class="top-brands">
+<?php if (!empty($offers)): ?>
+    <div class="top-brands">
     <div class="container">
         <h3>Горячие Предложения</h3>
         <div class="agile_top_brands_grids">
@@ -81,11 +84,11 @@
                             <figure>
                                 <div class="snipcart-item block">
                                     <div class="snipcart-thumb">
-                                        <a href="<?= \yii\helpers\Url::to(['/product/view/', 'id' => $offer['id']]) ?>"><?= \yii\helpers\Html::img("@web/images/products/{$offer['img']}", ['alt' => '', 'class' => 'img-responsive']); ?></a>
-                                        <p><?= $offer['title'] ?></p>
-                                        <h4>&#8381; <?= $offer['price'] ?>
-                                            <?php if ((float)$offer['old_price']): ?>
-                                            <span><?= $offer['old_price'] ?></span></h4>
+                                        <a href="<?= \yii\helpers\Url::to(['/product/view/', 'id' => $offer->id]) ?>"><?= \yii\helpers\Html::img("@web/images/products/{$offer->img}", ['alt' => '', 'class' => 'img-responsive']); ?></a>
+                                        <p><?= $offer->title ?></p>
+                                        <h4>&#8381; <?= $offer->price ?>
+                                            <?php if ((float)$offer->old_price): ?>
+                                            <span><?= $offer->old_price ?></span></h4>
                                             <?php endif; ?>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details">
@@ -115,6 +118,7 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
 <!-- //top-brands -->
 <!-- fresh-vegetables -->
 <div class="fresh-vegetables">
