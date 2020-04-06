@@ -45,13 +45,11 @@ AppAsset::register($this);
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Корзина</h4>
                     </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default no-br" data-dismiss="modal">Продолжить покупки</button>
                         <button type="button" class="btn btn-primary no-br">Перейти в корзину</button>
-                        <button type="button" class="btn btn-danger no-br">Очистить корзину</button>
+                        <button type="button" class="btn btn-danger no-br button-destroy-cart">Очистить корзину</button>
                     </div>
                 </div>
             </div>

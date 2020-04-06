@@ -47,6 +47,15 @@ body a:hover{
 }
 
 
+/*------- Cart Modal -------*/
+
+.cart-thumbnail {
+	max-height: 50px;
+}
+
+/*--------------------------*/
+
+
 /*-- header --*/
 .fixed{
 	position: fixed;

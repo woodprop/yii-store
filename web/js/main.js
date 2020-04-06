@@ -37,13 +37,44 @@ jQuery(document).ready(function($) {
     $().UItoTop({ easingType: 'easeOutQuart' });
 
 
+    $('.button-show-cart').on('click', getCart);
+    $('.button-destroy-cart').on('click', destroyCart);
+
+    function getCart(){
+        $.ajax({
+            url: '/cart/show',
+            type: 'GET',
+            success: (res) => {
+                $('#cart-modal .modal-body').html(res);
+            },
+            error: () => alert('ERROR'),
+
+        });
+    }
+
+    function destroyCart(){
+        $.ajax({
+            url: '/cart/destroy',
+            type: 'GET',
+            success: (res) => {
+                $('#cart-modal .modal-body').html(res);
+            },
+            error: () => alert('ERROR'),
+
+        });
+    }
+
+
     $('.add-to-cart-btn').on('click', function () {
         let id = $(this).data('id');
         $.ajax({
             url: '/cart/add',
             data: {id: id},
             type: 'GET',
-            success: (res) => alert(res),
+            success: (res) => {
+                $('#cart-modal .modal-body').html(res);
+                $('#cart-modal').modal();
+            },
             error: () => alert('ERROR'),
 
         });
