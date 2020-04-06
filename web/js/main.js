@@ -37,6 +37,19 @@ jQuery(document).ready(function($) {
     $().UItoTop({ easingType: 'easeOutQuart' });
 
 
+    $('.add-to-cart-btn').on('click', function () {
+        let id = $(this).data('id');
+        $.ajax({
+            url: '/cart/add',
+            data: {id: id},
+            type: 'GET',
+            success: (res) => alert(res),
+            error: () => alert('ERROR'),
+
+        });
+        return false;
+    });
+
 
 });
 
