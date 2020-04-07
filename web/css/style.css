@@ -53,6 +53,14 @@ body a:hover{
 	max-height: 50px;
 }
 
+.cart-del-item-btn {
+	cursor: pointer;
+	color: #FA1818;
+	line-height: 1;
+	font-size: 1.5em;
+	width: fit-content;
+}
+
 /*--------------------------*/
 
 

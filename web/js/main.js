@@ -40,12 +40,18 @@ jQuery(document).ready(function($) {
     $('.button-show-cart').on('click', getCart);
     $('.button-destroy-cart').on('click', destroyCart);
 
+
+    function showCart(cart) {
+        $('#cart-modal .modal-body').html(cart);
+        $('#cart-modal').modal();
+    }
+
     function getCart(){
         $.ajax({
             url: '/cart/show',
             type: 'GET',
             success: (res) => {
-                $('#cart-modal .modal-body').html(res);
+                showCart(res)
             },
             error: () => alert('ERROR'),
 
@@ -57,7 +63,7 @@ jQuery(document).ready(function($) {
             url: '/cart/destroy',
             type: 'GET',
             success: (res) => {
-                $('#cart-modal .modal-body').html(res);
+                showCart(res)
             },
             error: () => alert('ERROR'),
 
@@ -72,13 +78,27 @@ jQuery(document).ready(function($) {
             data: {id: id},
             type: 'GET',
             success: (res) => {
-                $('#cart-modal .modal-body').html(res);
-                $('#cart-modal').modal();
+                showCart(res)
             },
             error: () => alert('ERROR'),
 
         });
         return false;
+    });
+
+    $('.modal-body').on('click', '.cart-del-item-btn', function () {
+        console.log('ok');
+        let id = $(this).data('id');
+        $.ajax({
+            url: '/cart/delete-item',
+            data: {id: id},
+            type: 'GET',
+            success: (res) => {
+                showCart(res)
+            },
+            error: () => alert('ERROR'),
+
+        });
     });
 
 
