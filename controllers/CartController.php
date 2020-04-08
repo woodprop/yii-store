@@ -6,6 +6,7 @@ namespace app\controllers;
 
 use app\models\Cart;
 use app\models\Product;
+use SebastianBergmann\CodeCoverage\TestFixture\C;
 
 class CartController extends AppController
 {
@@ -29,19 +30,16 @@ class CartController extends AppController
     public function actionDeleteItem($id){
         $session = \Yii::$app->session;
         $session->open();
-        $_SESSION['cart-qty'] -= $_SESSION['cart'][$id]['qty'];
-        $_SESSION['cart-total'] -= $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
-        unset($_SESSION['cart'][$id]);
-        if (empty($_SESSION['cart'])) $this->actionDestroy();
+        $cart = new Cart();
+        $cart->removeFromCart($id);
         return $this->renderPartial('cart-modal', compact('session'));
     }
 
-    public function actionDestroy(){
+    public function actionClear(){
         $session = \Yii::$app->session;
         $session->open();
-        $session->remove('cart');
-        $session->remove('cart-qty');
-        $session->remove('cart-total');
+        $cart = new Cart();
+        $cart->clearCart();
         return $this->renderPartial('cart-modal', compact('session'));
     }
 }

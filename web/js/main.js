@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
 
 
     $('.button-show-cart').on('click', getCart);
-    $('.button-destroy-cart').on('click', destroyCart);
+    $('.button-clear-cart').on('click', clearCart);
 
 
     function showCart(cart) {
@@ -58,9 +58,9 @@ jQuery(document).ready(function($) {
         });
     }
 
-    function destroyCart(){
+    function clearCart(){
         $.ajax({
-            url: '/cart/destroy',
+            url: '/cart/clear',
             type: 'GET',
             success: (res) => {
                 showCart(res)
