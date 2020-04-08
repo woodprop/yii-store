@@ -16,6 +16,12 @@ class CartController extends AppController
         return $this->renderPartial('cart-modal', compact('session'));
     }
 
+    public function actionCheckout(){
+        $session = \Yii::$app->session;
+        $session->open();
+        return $this->render('checkout', compact('session'));
+    }
+
     public function actionAdd($id){
         $product = Product::findOne($id);
         if (empty($product)) return false;

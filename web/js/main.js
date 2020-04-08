@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 
     $('.button-show-cart').on('click', getCart);
     $('.button-clear-cart').on('click', clearCart);
-
+    $('.button-checkout').on('click', () => location.href = '/cart/checkout');
 
     function showCart(cart) {
         $('#cart-modal .modal-body').html(cart);
