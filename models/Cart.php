@@ -17,6 +17,17 @@ class Cart extends Model
         $this->calculateCart();
     }
 
+    public function changeQty($id, $qty){
+        $qty = (int)$qty;
+        if (!isset($_SESSION['cart'][$id])) return;
+        $_SESSION['cart'][$id]['qty'] += $qty;
+        if ($_SESSION['cart'][$id]['qty'] < 1){
+            $this->removeFromCart($id);
+            return;
+        }
+        $this->calculateCart();
+    }
+
     public function removeFromCart($id){
         unset($_SESSION['cart'][$id]);
         if (empty($_SESSION['cart'])){

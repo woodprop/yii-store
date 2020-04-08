@@ -40,6 +40,7 @@ jQuery(document).ready(function($) {
     $('.button-show-cart').on('click', getCart);
     $('.button-clear-cart').on('click', clearCart);
     $('.button-checkout').on('click', () => window.location.href = '/cart/checkout');
+    $('.value-plus, .value-minus').on('click', changeQty);
 
     function showCart(cart) {
         $('#cart-modal .modal-body').html(cart);
@@ -52,6 +53,24 @@ jQuery(document).ready(function($) {
             type: 'GET',
             success: (res) => {
                 showCart(res)
+            },
+            error: () => alert('ERROR'),
+
+        });
+    }
+
+    function changeQty() {
+        let id = $(this).data('id');
+        let qty = $(this).data('qty');
+        $.ajax({
+            url: '/cart/change-qty',
+            data: {
+                id: id,
+                qty: qty
+            },
+            type: 'GET',
+            success: (res) => {
+                window.location.reload();
             },
             error: () => alert('ERROR'),
 

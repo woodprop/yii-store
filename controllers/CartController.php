@@ -33,6 +33,14 @@ class CartController extends AppController
         return $this->renderPartial('cart-modal', compact('session'));
     }
 
+    public function actionChangeQty($id, $qty){
+        $session = \Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->changeQty($id, $qty);
+        return;
+    }
+
     public function actionDeleteItem($id){
         $session = \Yii::$app->session;
         $session->open();
