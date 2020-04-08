@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 
     $('.button-show-cart').on('click', getCart);
     $('.button-clear-cart').on('click', clearCart);
-    $('.button-checkout').on('click', () => location.href = '/cart/checkout');
+    $('.button-checkout').on('click', () => window.location.href = '/cart/checkout');
 
     function showCart(cart) {
         $('#cart-modal .modal-body').html(cart);
@@ -87,14 +87,18 @@ jQuery(document).ready(function($) {
     });
 
     $('.modal-body').on('click', '.cart-del-item-btn', function () {
-        console.log('ok');
         let id = $(this).data('id');
         $.ajax({
             url: '/cart/delete-item',
             data: {id: id},
             type: 'GET',
             success: (res) => {
-                showCart(res)
+                if (window.location.pathname !== '/cart/checkout'){
+                    showCart(res)
+                }
+                else {
+                    window.location.reload();
+                }
             },
             error: () => alert('ERROR'),
 

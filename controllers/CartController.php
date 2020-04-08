@@ -38,7 +38,10 @@ class CartController extends AppController
         $session->open();
         $cart = new Cart();
         $cart->removeFromCart($id);
-        return $this->renderPartial('cart-modal', compact('session'));
+        if (\Yii::$app->request->isAjax) {
+            return $this->renderPartial('cart-modal', compact('session'));
+        }
+        return $this->redirect(\Yii::$app->request->referrer);
     }
 
     public function actionClear(){

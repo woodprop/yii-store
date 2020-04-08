@@ -16,13 +16,13 @@
 <div class="banner">
     <?= $this->render('//layouts/inc/sidebar') ?>
     <div class="w3l_banner_nav_right">
-        <?php if (isset($_SESSION['cart'])): ?>
+
 <!-- ---------- checkout start ---------- -->
         <div class="privacy about">
             <h3>Оформление заказа</h3>
-
+            <?php if (isset($_SESSION['cart'])): ?>
             <div class="checkout-right">
-                <h4>В Вашей корзине: <span>3 Products</span></h4>
+                <h4>Товаров в корзине: <span><?= $_SESSION['cart-qty'] ?></span></h4>
                 <table class="timetable_sub">
                     <thead>
                     <tr>
@@ -60,7 +60,7 @@
                         <td class="invert"><?= $product['price'] ?></td>
                         <td class="invert">
                             <div class="rem">
-                                <div class="close1"> </div>
+                                <a href="<?= \yii\helpers\Url::to(['cart/delete-item', 'id' => $id]) ?>" class="close1 checkout-delete-item-btn" data-id="<?= $id ?>"></a>
                             </div>
 
                         </td>
@@ -126,11 +126,12 @@
                 </div>
                 <div class="clearfix"> </div>
             </div>
+            <?php else: ?>
+                <h4>Корзина пуста...</h4>
+            <?php endif; ?>
         </div>
 <!-- ---------- checkout end ---------- -->
-        <?php else: ?>
-        <h3>Корзина пуста...</h3>
-        <?php endif; ?>
+
     </div>
 
     <div class="clearfix"></div>
