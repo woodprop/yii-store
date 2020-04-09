@@ -15,6 +15,13 @@ $config = [
     'defaultRoute' => 'home/index',
     'language' => 'ru',
     'name' => 'Grocery Store',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+            'defaultRoute' => 'main'
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
