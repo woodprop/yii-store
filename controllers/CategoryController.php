@@ -16,7 +16,6 @@ class CategoryController extends AppController
         $category = Category::findOne($id);
         if (!$category) throw new NotFoundHttpException('Категория не найдена...');
 
-//        $products = Product::find()->where(['category_id' => $id])->all();
         $query = Product::find()->where(['category_id' => $id]);
         $pages = new Pagination([
             'totalCount' => $query->count(),

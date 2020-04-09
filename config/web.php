@@ -21,6 +21,16 @@ $config = [
             'cookieValidationKey' => 'wPcxYFJEuJ2_9zLAUvsUuZvd79Zt_bIl',
             'baseUrl' => '',
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,   // не опубликовывать комплект
+                    'js' => [
+                        'js/jquery-1.11.1.min.js',
+                    ]
+                ],
+            ],
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
