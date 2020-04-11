@@ -52,7 +52,7 @@ class Order extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => '№ заказа',
             'name' => 'Покупатель',
             'email' => 'Email',
             'phone' => 'Телефон',
@@ -64,5 +64,9 @@ class Order extends \yii\db\ActiveRecord
             'total_qty' => 'Товаров',
             'total_price' => 'Сумма',
         ];
+    }
+
+    public function getOrderProducts(){
+        return $this->hasMany(OrderProduct::class, ['order_id' => 'id']);
     }
 }

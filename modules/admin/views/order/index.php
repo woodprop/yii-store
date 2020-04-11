@@ -9,14 +9,11 @@ use yii\grid\GridView;
 $this->title = 'Заказы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="order-index">
 
-    <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-        <div class="row">
+<div class="row">
             <div class="col-sm-12">
+                <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success mb-3']) ?>
+
                 <div class="card">
                     <?= GridView::widget([
                     'options' => [
@@ -35,7 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'phone',
                         //'address',
                         //'comment:ntext',
-                        'status',
+                        ['attribute' => 'status',
+                            'value' => function($item){
+                                if ($item->status) return '<span class="text-success">Выполнен</span>';
+                                return '<span class="text-danger">Новый</span>';
+                            },
+                            'format' => 'html',
+                        ],
                         'created_at:dateTime',
                         'updated_at:dateTime',
                         'total_qty',
@@ -87,11 +90,3 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
 
-
-
-
-
-
-
-
-</div>
