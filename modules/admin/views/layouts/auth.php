@@ -13,7 +13,8 @@ AuthAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <base href="adminlte/">
-    <meta charset="utf-8">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <?php $this->registerCsrfMetaTags() ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 3 | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
