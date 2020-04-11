@@ -24,14 +24,14 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="nav-link active">
+                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="nav-link <?php if ($this->context->route == 'admin/main/index') echo 'active'?>">
                             <i class="far fa-chart-bar nav-icon"></i>
                             <p>Статистика</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= \yii\helpers\Url::to(['order/index']) ?>" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
+                        <a href="<?= \yii\helpers\Url::to(['order/index']) ?>" class="nav-link <?php if ($this->context->route == 'admin/order/index') echo 'active'?>">
+                            <i class="fas fa-box nav-icon"></i>
                             <p>Заказы</p>
                         </a>
                     </li>
