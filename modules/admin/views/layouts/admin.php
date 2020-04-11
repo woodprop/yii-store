@@ -142,10 +142,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h1 class="m-0 text-dark"><?= $this->title ?></h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Starter Page</li>
-                        </ol>
+<!--                        <ol class="breadcrumb float-sm-right">-->
+<!--                            <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--                            <li class="breadcrumb-item active">Starter Page</li>-->
+<!--                        </ol>-->
+                        <?= \yii\widgets\Breadcrumbs::widget([
+                            'tag' => 'ol',
+                            'options' => ['class' => 'breadcrumb float-sm-right'],
+                            'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
+                            'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
+                            'homeLink' => [
+                                    'label' => 'Панель администратора',
+                                    'url' => \yii\helpers\Url::to(['/admin']),
+                            ],
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        ]) ?>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->

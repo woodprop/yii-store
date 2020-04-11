@@ -2,6 +2,9 @@
 /**
  * @var $orderCount integer
  */
+
+$this->title = 'Статистика';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
     <div class="col-lg-3 col-6">

@@ -24,15 +24,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="nav-link active">
                             <i class="far fa-chart-bar nav-icon"></i>
                             <p>Статистика</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<?= \yii\helpers\Url::to(['order/index']) ?>" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Inactive Page</p>
+                            <p>Заказы</p>
                         </a>
                     </li>
                 </ul>
