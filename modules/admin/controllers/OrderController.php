@@ -2,10 +2,12 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\OrderProduct;
 use Yii;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use app\modules\admin\controllers\AppAdminController;
+use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -117,6 +119,28 @@ class OrderController extends AppAdminController
         return $this->redirect(['index']);
     }
 
+    public function actionDeleteProduct($id){
+        $product = OrderProduct::findOne($id);
+        $orderId = $product->order_id;
+        $product->delete();
+        $this->calculateOrder($orderId);
+        return $this->redirect(Yii::$app->request->referrer);
+
+    }
+
+    protected function calculateOrder($id){
+        $order = $this->findModel($id);
+        $orderProducts = $order->orderProducts;
+        $order->total_qty = 0;
+        $order->total_price = 0;
+
+        foreach ($orderProducts as $product) {
+            $order->total_qty += $product['qty'];
+            $order->total_price += $product['price'] * $product['qty'];
+        }
+        $order->save();
+    }
+
     /**
      * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -124,6 +148,7 @@ class OrderController extends AppAdminController
      * @return Order the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     protected function findModel($id)
     {
         if (($model = Order::findOne($id)) !== null) {

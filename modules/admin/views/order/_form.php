@@ -32,6 +32,49 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'total_price')->textInput(['maxlength' => true]) ?>
 
+    <?php
+    $orderProducts = $model->orderProducts; ?>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Товары в заказе:</h3>
+
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>ID товара</th>
+                            <th>Наименование</th>
+                            <th>Количество</th>
+                            <th>Цена</th>
+                            <th>Сумма</th>
+                            <th>Удалить</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($orderProducts as $product): ?>
+                            <tr>
+                                <td><?= $product->product_id ?></td>
+                                <td><?= $product->title ?></td>
+                                <td><?= $product->qty ?></td>
+                                <td><?= $product->price ?></td>
+                                <td><?= $product->qty * $product->price ?></td>
+                                <td><a href="<?= \yii\helpers\Url::to(['order/delete-product', 'id' => $product->id]) ?>"><i class="far fa-trash-alt text-danger"></i></a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
