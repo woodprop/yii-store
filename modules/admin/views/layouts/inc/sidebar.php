@@ -35,6 +35,13 @@
                             <p>Заказы</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= \yii\helpers\Url::to(['product/index']) ?>" class="nav-link <?php if ($this->context->route == 'admin/product/index') echo 'active'?>">
+                            <i class="fas fa-pizza-slice nav-icon"></i>
+                            <p>Товары</p>
+                        </a>
+                    </li>
+
                 </ul>
             </li>
             <li class="nav-item">

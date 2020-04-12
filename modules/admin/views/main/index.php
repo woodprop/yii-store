@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $orderCount integer
+ * @var $productCount integer
  */
 
 $this->title = 'Статистика';
@@ -25,14 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>44</h3>
+                <h3><?= $productCount ?></h3>
 
                 <p>Товаров</p>
             </div>
             <div class="icon">
                 <i class="fas fa-pizza-slice"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= \yii\helpers\Url::to(['product/index']) ?>" class="small-box-footer">К товарам <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <div class="col-lg-3 col-6">
