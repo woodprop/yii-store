@@ -2,7 +2,7 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "product".
@@ -18,7 +18,7 @@ use Yii;
  * @property string $img
  * @property int $is_offer
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends ActiveRecord
 {
     /**
      * {@inheritdoc}
