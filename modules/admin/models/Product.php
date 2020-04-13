@@ -20,6 +20,7 @@ use yii\db\ActiveRecord;
  */
 class Product extends ActiveRecord
 {
+    public $imageFile;
     /**
      * {@inheritdoc}
      */
@@ -39,6 +40,7 @@ class Product extends ActiveRecord
             [['content'], 'string'],
             [['price', 'old_price'], 'number'],
             [['title', 'description', 'keywords', 'img'], 'string', 'max' => 255],
+            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -63,5 +65,20 @@ class Product extends ActiveRecord
 
     public function getCategory(){
         return $this->hasOne(Category::class, ['id' => 'category_id']);
+    }
+
+
+    public function save($runValidation = true, $attributeNames = null)
+    {
+        if ($this->validate()) {
+            $fileName = 'images/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension;
+            $this->img = $fileName;
+            if (parent::save($runValidation, $attributeNames)){
+                $this->imageFile->saveAs($fileName);
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 }

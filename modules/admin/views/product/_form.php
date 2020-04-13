@@ -40,6 +40,8 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
+
     <?= $form->field($model, 'is_offer')->textInput() ?>
 
     <div class="form-group">

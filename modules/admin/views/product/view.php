@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'img',
                         'value' => function($data){
-                            return "@web/images/products/{$data->img}";
+                            return "@web/{$data->img}";
                             },
                         'format' => 'image',
                     ],
