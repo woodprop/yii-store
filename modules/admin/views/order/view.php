@@ -12,12 +12,12 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="row">
-    <div class="col-12">
+    <div class="col-lg-6 col-12">
         <div class="card">
             <div class="card-header">
-            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
+            <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-warning btn-lg']) ?>
+            <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger btn-lg',
                 'data' => [
                     'confirm' => 'Are you sure you want to delete this item?',
                     'method' => 'post',
@@ -53,10 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-12">
+    <div class="col-lg-6 col-12">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Товары в заказе:</h3>

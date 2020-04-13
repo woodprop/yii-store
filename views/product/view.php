@@ -25,7 +25,6 @@
                 <p>Sint occaecat cupidatat non proident</p>
                 <a href="single.html">Shop Now</a>
             </div>
-
         </div>
 
 <!--        Single product start-->

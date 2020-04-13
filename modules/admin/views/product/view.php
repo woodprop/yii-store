@@ -34,12 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id',
                     'category_id',
                     'title',
-                    'content:ntext',
+                    'content:html',
                     'price',
                     'old_price',
                     'description',
                     'keywords',
-                    //'img',
                     [
                         'attribute' => 'img',
                         'value' => function($data){
