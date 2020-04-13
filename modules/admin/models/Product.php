@@ -3,6 +3,7 @@
 namespace app\modules\admin\models;
 
 use yii\db\ActiveRecord;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "product".
@@ -40,7 +41,7 @@ class Product extends ActiveRecord
             [['content'], 'string'],
             [['price', 'old_price'], 'number'],
             [['title', 'description', 'keywords', 'img'], 'string', 'max' => 255],
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imageFile'], 'image'],
         ];
     }
 
@@ -67,18 +68,15 @@ class Product extends ActiveRecord
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
-
-    public function save($runValidation = true, $attributeNames = null)
+    public function beforeSave($insert)
     {
-        if ($this->validate()) {
-            $fileName = 'images/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension;
-            $this->img = $fileName;
-            if (parent::save($runValidation, $attributeNames)){
-                $this->imageFile->saveAs($fileName);
-                return true;
-            }
-            return false;
+        if ($imageFile = UploadedFile::getInstance($this, 'imageFile')){
+            $dir = 'images/products/' . date('Y-m-d') . '/';
+            if (!is_dir($dir)) mkdir($dir);
+            $fileName = uniqid() . $imageFile->baseName . '.' . $imageFile->extension;
+            $this->img = $dir . $fileName;
+            $imageFile->saveAs($this->img);
         }
-        return false;
+        return parent::beforeSave($insert);
     }
 }

@@ -16,7 +16,7 @@ if (isset($session['cart'])): ?>
     <tbody>
         <?php foreach ($session['cart'] as $id => $product): ?>
         <tr>
-            <td><?= \yii\helpers\Html::img("@web/images/products/{$product['img']}", ['class' => 'cart-thumbnail']) ?></td>
+            <td><?= \yii\helpers\Html::img("@web/{$product['img']}", ['class' => 'cart-thumbnail']) ?></td>
             <td><?= $product['title'] ?></td>
             <td class="text-center"><?= $product['qty'] ?></td>
             <td><?= $product['price'] ?></td>

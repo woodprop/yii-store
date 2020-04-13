@@ -31,7 +31,7 @@
         <div class="agileinfo_single">
             <h5><?= $product->title ?></h5>
             <div class="col-md-4 agileinfo_single_left">
-                <?= \yii\helpers\Html::img("@web/images/products/{$product->img}", ['alt' => '', 'class' => 'img-responsive', 'id' => 'example']) ?>
+                <?= \yii\helpers\Html::img("@web/{$product->img}", ['alt' => '', 'class' => 'img-responsive', 'id' => 'example']) ?>
             </div>
             <div class="col-md-8 agileinfo_single_right">
                 <div class="rating1">

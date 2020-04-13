@@ -89,7 +89,7 @@
                             <figure>
                                 <div class="snipcart-item block">
                                     <div class="snipcart-thumb">
-                                        <a href="<?= \yii\helpers\Url::to(['/product/view/', 'id' => $product->id]) ?>"><?= \yii\helpers\Html::img("@web/images/products/{$product->img}", ['alt' => '', 'class' => 'img-responsive']); ?></a>
+                                        <a href="<?= \yii\helpers\Url::to(['/product/view/', 'id' => $product->id]) ?>"><?= \yii\helpers\Html::img("@web/{$product->img}", ['alt' => '', 'class' => 'img-responsive']); ?></a>
                                         <p><?= $product->title ?></p>
                                         <h4>&#8381; <?= $product->price ?>
                                             <?php if ((float)$product->old_price): ?>
