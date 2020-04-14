@@ -45,13 +45,18 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parent_id' => 'Parent ID',
-            'title' => 'Title',
+            'parent_id' => 'Родительская категория',
+            'title' => 'Название',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'banner_img' => 'Banner Img',
-            'banner_title' => 'Banner Title',
-            'banner_subtitle' => 'Banner Subtitle',
+            'banner_img' => 'Баннер',
+            'banner_title' => 'Заголовок баннера',
+            'banner_subtitle' => 'Подзаголовок баннера',
         ];
+    }
+
+    public function getParentName(){
+        if (!$this->parent_id) return '-';
+        return self::findOne(['id' => $this->parent_id])->title;
     }
 }

@@ -3,17 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Product;
+use app\modules\admin\models\Category;
 use yii\data\ActiveDataProvider;
-use yii\helpers\Html;
+use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * CategoryController implements the CRUD actions for Category model.
  */
-class ProductController extends AppAdminController
+class CategoryController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -22,7 +21,7 @@ class ProductController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -31,14 +30,13 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Lists all Product models.
+     * Lists all Category models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find()->with('category'),
-            'pagination' => ['pageSize' => 10],
+            'query' => Category::find(),
         ]);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Category model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,22 +58,25 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Category model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Product();
+        $model = new Category();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        return $this->render('create', ['model' => $model,]);
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
-        /**
-     * Updates an existing Product model.
+    /**
+     * Updates an existing Category model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -84,14 +85,18 @@ class ProductController extends AppAdminController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-        return $this->render('update', ['model' => $model,]);
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Category model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -105,15 +110,15 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Category model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Category the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Category::findOne($id)) !== null) {
             return $model;
         }
 

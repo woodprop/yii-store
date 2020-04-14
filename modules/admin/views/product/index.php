@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-sm-12">
 
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить новый товар', ['create'], ['class' => 'btn btn-success']) ?>
 
-    <div class="card">
+    <div class="card mt-3">
     <?= GridView::widget([
         'options' => [
             'class' => 'card-body',

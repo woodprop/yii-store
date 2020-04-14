@@ -1,7 +1,8 @@
 <?php
 /**
- * @var $orderCount integer
- * @var $productCount integer
+ * @var integer $orderCount
+ * @var integer $productCount
+ * @var integer $categoryCount
  */
 
 $this->title = 'Статистика';
@@ -40,14 +41,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>65</h3>
+                <h3><?= $categoryCount ?></h3>
 
                 <p>Категорий</p>
             </div>
             <div class="icon">
                 <i class="fas fa-bezier-curve"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= \yii\helpers\Url::to(['category/index']) ?>" class="small-box-footer">К категориям<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 </div>
