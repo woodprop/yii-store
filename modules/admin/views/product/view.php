@@ -32,7 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'attributes' => [
                     'id',
-                    'category_id',
+                    [
+                        'attribute' => 'category_id',
+                        'value' => function($data){
+                            return Html::a($data->category->title, \yii\helpers\Url::to(['category/view', 'id' => $data->category->id]));
+                        },
+                        'format' => 'html',
+                    ],
                     'title',
                     'content:html',
                     'price',

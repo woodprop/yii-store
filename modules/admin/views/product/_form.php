@@ -13,7 +13,15 @@ use dosamigos\tinymce\TinyMce;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <div class="form-group field-product-category_id">
+        <label class="control-label" for="product-category_id">Категория</label>
+        <select id="product-category_id" class="form-control" name="Product[category_id]">
+            <option value="0">-</option>
+            <?= \app\components\MenuWidget::widget(['tpl' => 'dropdown-product', 'model' => $model, 'cache_time' => 0]) ?>
+        </select>
+
+        <div class="help-block"></div>
+    </div>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -42,7 +50,10 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'imageFile')->fileInput() ?>
 
-    <?= $form->field($model, 'is_offer')->textInput() ?>
+    <?= $form->field($model, 'is_offer')->dropDownList([
+        '0' => 'НЕТ',
+        '1' => 'ДА',
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success btn-lg']) ?>

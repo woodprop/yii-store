@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Product;
 use Yii;
 use app\modules\admin\models\Category;
 use yii\data\ActiveDataProvider;
@@ -21,7 +22,7 @@ class CategoryController extends AppAdminController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -104,8 +105,15 @@ class CategoryController extends AppAdminController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $cats = Category::find()->where(['parent_id' => $id])->count();
+        $products = Product::find()->where(['category_id' => $id])->count();
 
+        if ($cats || $products){
+            Yii::$app->session->setFlash('error', 'Нельзя удалить категорию с вложенными товарами или категориями');
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success', 'Категория удалена');
         return $this->redirect(['index']);
     }
 

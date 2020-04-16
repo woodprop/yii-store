@@ -60,6 +60,7 @@ class Product extends ActiveRecord
             'description' => 'Description',
             'keywords' => 'Keywords',
             'img' => 'Фото',
+            'imageFile' => 'Новое фото',
             'is_offer' => 'Акция',
         ];
     }
