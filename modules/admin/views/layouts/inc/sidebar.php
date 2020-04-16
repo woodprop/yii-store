@@ -43,7 +43,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="<?= \yii\helpers\Url::to(['category/index']) ?>" class="nav-link <?php if ($this->context->route == 'admin/category/index') echo 'active'?>">
-                            <i class="fas fa-pizza-slice nav-icon"></i>
+                            <i class="fas fa-bezier-curve nav-icon"></i>
                             <p>Категории</p>
                         </a>
                     </li>
