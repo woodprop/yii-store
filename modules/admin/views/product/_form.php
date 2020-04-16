@@ -16,7 +16,6 @@ use dosamigos\tinymce\TinyMce;
     <div class="form-group field-product-category_id">
         <label class="control-label" for="product-category_id">Категория</label>
         <select id="product-category_id" class="form-control" name="Product[category_id]">
-            <option value="0">-</option>
             <?= \app\components\MenuWidget::widget(['tpl' => 'dropdown-product', 'model' => $model, 'cache_time' => 0]) ?>
         </select>
 
@@ -46,7 +45,9 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <div class="border mb-3">
+        <?= Html::img("@web/{$model->img}", ['alt' => 'Фото товара']) ?>
+    </div>
 
     <?= $form->field($model, 'imageFile')->fileInput() ?>
 

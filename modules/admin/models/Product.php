@@ -41,6 +41,7 @@ class Product extends ActiveRecord
             [['content'], 'string'],
             [['price', 'old_price'], 'number'],
             [['title', 'description', 'keywords', 'img'], 'string', 'max' => 255],
+            ['img', 'default', 'value' => 'images/no-image.jpg'],
             [['imageFile'], 'image'],
         ];
     }

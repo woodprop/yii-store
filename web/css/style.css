@@ -1207,9 +1207,10 @@ button.submit.check_out{
 	background:#833ab4;
 	border-color:#833ab4;
 }
-.agileits_social_icons li a.dribbble:hover{
-	background:#ea4c89;
-	border-color:#ea4c89;
+.agileits_social_icons li a.github:hover{
+	color: #000;
+	background:#fff;
+	border-color:#fff;
 }
 .w3_footer_grid ul.w3_footer_grid_list1 li i {
     color: #84C639;

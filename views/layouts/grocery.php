@@ -55,23 +55,8 @@ AppAsset::register($this);
             </div>
         </div>
     </div>
-    <div class="w3l_header_right">
-        <ul>
-            <li class="dropdown profile_details_drop">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
-                <div class="mega-dropdown-menu">
-                    <div class="w3ls_vegetables">
-                        <ul class="dropdown-menu drp-mnu">
-                            <li><a href="login.html">Войти</a></li>
-                            <li><a href="login.html">Зарегистрироваться</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
     <div class="w3l_header_right1">
-        <h2><a href="mail.html">Связаться с нами</a></h2>
+        <h2><a href="">Связаться с нами</a></h2>
     </div>
     <div class="clearfix"> </div>
 </div>
@@ -172,16 +157,15 @@ AppAsset::register($this);
                     <ul class="agileits_social_icons">
                         <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/woodprop" class="github" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
             <div class="clearfix"> </div>
         </div>
         <div class="wthree_footer_copy">
-            <p>© 2016 Grocery Store. All rights reserved | Разработка <a href="http://kkokarev.ru/">Konstantin Kokarev</a></p>
+            <p>© 2020 Продуктовый Ларёк | Разработка <a href="http://kkokarev.ru/">Konstantin Kokarev</a></p>
         </div>
     </div>
 </div>
