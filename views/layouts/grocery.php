@@ -5,6 +5,7 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -27,7 +28,7 @@ AppAsset::register($this);
         <a href="products.html">Только Сегодня !</a>
     </div>
     <div class="w3l_search">
-        <form action="<?= \yii\helpers\Url::to(['category/search']) ?>" method="get">
+        <form action="<?= Url::to(['category/search']) ?>" method="get">
             <input type="text" name="q" value="Поиск товаров..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Поиск товаров...';}" required="">
             <input type="submit" value="">
         </form>
@@ -64,14 +65,14 @@ AppAsset::register($this);
 <div class="logo_products">
     <div class="container">
         <div class="w3ls_logo_products_left">
-            <h1><a href="<?= \yii\helpers\Url::home() ?>"><span>Продуктовый</span> Ларёк</a></h1>
+            <h1><a href="<?= Url::home() ?>"><span>Продуктовый</span> Ларёк</a></h1>
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="special_items">
-                <li><a href="events.html">Акции</a><i>/</i></li>
-                <li><a href="about.html">О Нас</a><i>/</i></li>
-                <li><a href="products.html">Распродажа</a><i>/</i></li>
-                <li><a href="services.html">Услуги</a></li>
+                <li><a href="<?= Url::to(['home/events']) ?>">Акции</a><i>/</i></li>
+                <li><a href="<?= Url::to(['home/about']) ?>">О Нас</a><i>/</i></li>
+                <li><a href="<?= Url::to(['home/sale']) ?>">Распродажа</a><i>/</i></li>
+                <li><a href="<?= Url::to(['home/services']) ?>">Услуги</a></li>
             </ul>
         </div>
         <div class="w3ls_logo_products_left1">

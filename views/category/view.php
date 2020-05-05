@@ -19,12 +19,11 @@
     <?= $this->render('//layouts/inc/sidebar') ?>
     <div class="w3l_banner_nav_right">
         <div class="category_banner">
-            <?= \yii\helpers\Html::img("@web/images/{$category->banner_img}", ['alt' => '', 'class' => 'img-responsive']) ?>
+            <?= \yii\helpers\Html::img("@web/images/cat-banners/{$category->banner_img}", ['alt' => '', 'class' => 'img-responsive']) ?>
 <!--        <div class="w3l_banner_nav_right_banner9 w3l_banner_nav_right_banner_pet">-->
             <div class="category_banner_title">
-                <h4>Your Pet Favourite Food</h4>
-                <p>Sint occaecat cupidatat non proident</p>
-                <a href="single.html">Shop Now</a>
+                <h4><?= $category->banner_title ?></h4>
+                <p><?= $category->banner_subtitle ?></p>
             </div>
 
         </div>

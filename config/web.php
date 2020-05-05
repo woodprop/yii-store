@@ -14,7 +14,7 @@ $config = [
     'layout' => 'grocery',
     'defaultRoute' => 'home/index',
     'language' => 'ru',
-    'name' => 'Grocery Store',
+    'name' => 'Продуктовый ЛарЁк',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -75,6 +75,7 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
+                'about' => 'home/about',
             ],
         ],
     ],
